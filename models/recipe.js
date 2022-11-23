@@ -1,7 +1,7 @@
 //Externo
 import { Schema, model } from "mongoose";
 
-const recetaSchema = Schema({
+const RecipeSchema = Schema({
 	name: {
 		type: String,
 		required: [true, 'Name is required']
@@ -23,8 +23,14 @@ const recetaSchema = Schema({
 	}
 });
 
-const Receta = model('Receta', recetaSchema);
+RecipeSchema.methods.toJSON = function () {
+	const { _id, __v, ...recipe } = this.toObject();
+	recipe.uid = _id;
+	return recipe;
+};
+
+const Recipe = model('Recipe', RecipeSchema);
 
 export {
-	Receta
+	Recipe
 } 

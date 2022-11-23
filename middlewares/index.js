@@ -1,7 +1,9 @@
-import { validarCampos } from './validar-campos.js';
-import { validarJWT } from './validar-jwt.js';
+import { validateFields } from './validate-fields.js';
+import { validateJWT } from './validate-jwt.js';
+import { validatePassword } from './validate-password.js';
 
 export {
-	validarCampos,
-	validarJWT
+	validateFields,
+	validateJWT,
+	validatePassword
 }

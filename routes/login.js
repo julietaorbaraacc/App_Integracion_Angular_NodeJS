@@ -1,19 +1,23 @@
-//Externo
+//External
 import { Router } from 'express';
 import { check } from 'express-validator';
 
-//Interno
+//Internal
 import { login } from '../controllers/index.js';
-import { emailNoExiste } from '../helpers/db-validators.js';
-import { validarCampos } from '../middlewares/index.js';
+import { emailNoExist } from '../helpers/index.js';
+import {
+	validateFields,
+	validatePassword
+} from '../middlewares/index.js';
 
 const routerLogin = Router();
 
 routerLogin.post("/", [
 	check("email", "El email no es válido.").isEmail(),
-	check("email").custom(emailNoExiste),
+	check("email").custom(emailNoExist),
 	check("password", "El password es obligatorio.").not().isEmpty(),
-	validarCampos
+	validatePassword,
+	validateFields
 ], login);
 
 export {

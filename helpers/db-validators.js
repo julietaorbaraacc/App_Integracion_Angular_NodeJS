@@ -1,30 +1,33 @@
-//Interno
-import { Usuario } from "../models/index.js";
+//External
+import bcryptjs from "bcryptjs";
 
-const emailExiste = async (email = "") => {
-	const existeEmail = await Usuario.findOne({ email });
+//Internal
+import { User } from "../models/index.js";
 
-	if (existeEmail) {
+const emailExist = async (email = "") => {
+	const existEmail = await User.findOne({ email });
+
+	if (existEmail) {
 		throw new Error(`El correo ${email} ya está registrado.`);
 	}
 
 	return true;
 }
 
-const emailNoExiste = async (email = "") => {
-	const existeEmail = await Usuario.findOne({ email });
+const emailNoExist = async (email = "") => {
+	const existEmail = await User.findOne({ email });
 
-	if (!existeEmail) {
+	if (!existEmail) {
 		throw new Error(`El correo ${email} no está registrado.`);
 	}
 
 	return true;
 }
 
-const usuarioExistePorID = async (id) => {
-	const existeUsuario = await Usuario.findById(id);
+const userExistByID = async (id) => {
+	const existUser = await User.findById(id);
 
-	if (!existeUsuario) {
+	if (!existUser) {
 		throw new Error(`El ID ${id} no existe.`);
 	}
 
@@ -32,7 +35,7 @@ const usuarioExistePorID = async (id) => {
 }
 
 export {
-	emailExiste,
-	emailNoExiste,
-	usuarioExistePorID
+	emailExist,
+	emailNoExist,
+	userExistByID
 }

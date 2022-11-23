@@ -1,7 +1,7 @@
 //Externo
 import jsonwebtoken from "jsonwebtoken";
 
-const generarJWT = async (uid = "") => {
+const generateJWT = async (uid = "") => {
 	return new Promise((resolve, reject) => {
 		const payload = { uid };
 
@@ -17,5 +17,5 @@ const generarJWT = async (uid = "") => {
 }
 
 export {
-	generarJWT
+	generateJWT
 }

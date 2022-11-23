@@ -1,7 +1,7 @@
 //Externo
 import { validationResult } from 'express-validator';
 
-const validarCampos = (req, res, next) => {
+const validateFields = (req, res, next) => {
 	const errors = validationResult(req);
 
 	if (!errors.isEmpty()) {
@@ -12,5 +12,5 @@ const validarCampos = (req, res, next) => {
 }
 
 export {
-	validarCampos
+	validateFields
 }

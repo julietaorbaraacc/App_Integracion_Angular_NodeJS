@@ -1,9 +1,9 @@
 import { Server } from './server.js';
-import { Usuario } from './usuario.js';
-import { Receta } from './receta.js';
+import { User } from './user.js';
+import { Recipe } from './recipe.js';
 
 export {
 	Server,
-	Usuario,
-	Receta
+	User,
+	Recipe
 }

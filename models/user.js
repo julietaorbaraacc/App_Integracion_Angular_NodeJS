@@ -1,7 +1,7 @@
 //Externo
 import { Schema, model } from "mongoose";
 
-const usuarioSchema = Schema({
+const userSchema = Schema({
 	email: {
 		type: String,
 		required: [true, 'Email is required'],
@@ -25,21 +25,17 @@ const usuarioSchema = Schema({
 		type: String,
 		required: false,
 		default: ''
-	},
-	estado: {
-		type: Boolean,
-		default: true
 	}
 });
 
-usuarioSchema.methods.toJSON = function () {
-	const { _id, localId, expiresIn, __v, ...usuario } = this.toObject();
-	usuario.uid = _id;
-	return usuario;
+userSchema.methods.toJSON = function () {
+	const { _id, localId, expiresIn, __v, ...user } = this.toObject();
+	user.uid = _id;
+	return user;
 };
 
-const Usuario = model('Usuario', usuarioSchema);
+const User = model('User', userSchema);
 
 export {
-	Usuario
+	User
 } 

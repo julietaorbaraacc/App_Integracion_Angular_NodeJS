@@ -1,12 +1,14 @@
-//Externo
+//External
 import express from 'express';
 import cors from 'cors';
 
-//Interno
+//Internal
 import { dbConnection } from '../database/config.js';
 import {
 	routerLogin,
-	routerSignUp
+	routerSignUp,
+	routerSave,
+	routerFetch
 } from '../routes/index.js';
 
 class Server {
@@ -15,14 +17,16 @@ class Server {
 		this.port = process.env.PORT;
 		this.paths = {
 			login: "/login",
-			signup: "/signup"
+			signup: "/signup",
+			save: "/save",
+			fetch: "/fetch"
 		}
-		this.conectarDB();
+		this.conectDB();
 		this.middlewares();
 		this.routes();
 	}
 
-	async conectarDB() {
+	async conectDB() {
 		await dbConnection();
 	}
 
@@ -35,6 +39,8 @@ class Server {
 	routes() {
 		this.app.use(this.paths.login, routerLogin);
 		this.app.use(this.paths.signup, routerSignUp);
+		this.app.use(this.paths.save, routerSave);
+		this.app.use(this.paths.fetch, routerFetch);
 	}
 
 	listen() {
