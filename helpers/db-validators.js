@@ -1,24 +1,21 @@
-//External
-import bcryptjs from "bcryptjs";
-
 //Internal
 import { User } from "../models/index.js";
 
-const emailExist = async (email = "") => {
+const emailExists = async (email = "") => {
 	const existEmail = await User.findOne({ email });
 
 	if (existEmail) {
-		throw new Error(`El correo ${email} ya está registrado.`);
+		throw new Error(`The email ${email} is already registered`);
 	}
 
 	return true;
 }
 
-const emailNoExist = async (email = "") => {
+const emailNoExists = async (email = "") => {
 	const existEmail = await User.findOne({ email });
 
 	if (!existEmail) {
-		throw new Error(`El correo ${email} no está registrado.`);
+		throw new Error(`The email ${email} is not registered`);
 	}
 
 	return true;
@@ -28,14 +25,14 @@ const userExistByID = async (id) => {
 	const existUser = await User.findById(id);
 
 	if (!existUser) {
-		throw new Error(`El ID ${id} no existe.`);
+		throw new Error(`The ID ${id} does not exist`);
 	}
 
 	return true;
 }
 
 export {
-	emailExist,
-	emailNoExist,
+	emailExists,
+	emailNoExists,
 	userExistByID
 }

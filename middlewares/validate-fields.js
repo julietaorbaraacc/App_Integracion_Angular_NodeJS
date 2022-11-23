@@ -1,4 +1,4 @@
-//Externo
+//External
 import { validationResult } from 'express-validator';
 
 const validateFields = (req, res, next) => {

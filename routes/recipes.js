@@ -2,19 +2,29 @@
 import { Router } from 'express';
 
 //Internal
-import { fetchRecipes } from '../controllers/index.js';
+import {
+	save,
+	fetch
+} from '../controllers/index.js';
 import {
 	validateFields,
 	validateJWT
 } from '../middlewares/index.js';
 
+const routerSave = Router();
 const routerFetch = Router();
+
+routerSave.post("/", [
+	validateJWT,
+	validateFields
+], save);
 
 routerFetch.get("/", [
 	validateJWT,
 	validateFields
-], fetchRecipes);
+], fetch);
 
 export {
+	routerSave,
 	routerFetch
 }

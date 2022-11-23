@@ -1,4 +1,4 @@
-//Externo
+//External
 import jsonwebtoken from "jsonwebtoken";
 
 const generateJWT = async (uid = "") => {
@@ -8,7 +8,8 @@ const generateJWT = async (uid = "") => {
 		jsonwebtoken.sign(payload, process.env.SECREORPRIVATEKEY, { expiresIn: "8h" }, (error, token) => {
 			if (error) {
 				console.log(error);
-				reject("No se pudo generar el token.");
+
+				reject("The token was not generated");
 			} else {
 				resolve(token);
 			}

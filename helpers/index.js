@@ -1,13 +1,13 @@
 import {
-	emailExist,
-	emailNoExist,
+	emailExists,
+	emailNoExists,
 	userExistByID,
 } from './db-validators.js';
 import { generateJWT } from './generate-jwt.js';
 
 export {
-	emailExist,
-	emailNoExist,
+	emailExists,
+	emailNoExists,
 	userExistByID,
 	generateJWT
 }

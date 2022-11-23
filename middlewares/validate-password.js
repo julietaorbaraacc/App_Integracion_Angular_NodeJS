@@ -11,7 +11,7 @@ const validatePassword = async (req, res, next) => {
 
 	if (!validPassword) {
 		return res.status(400).json({
-			msg: "El password no es correcto"
+			msg: "The password is incorrect"
 		});
 	}
 

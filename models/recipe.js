@@ -1,4 +1,4 @@
-//Externo
+//External
 import { Schema, model } from "mongoose";
 
 const RecipeSchema = Schema({

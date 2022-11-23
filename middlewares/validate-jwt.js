@@ -1,7 +1,7 @@
-//Externo
+//External
 import jsonwebtoken from "jsonwebtoken";
 
-//Interno
+//Internal
 import { User } from "../models/index.js";
 
 const validateJWT = async (req, res, next) => {
@@ -9,7 +9,7 @@ const validateJWT = async (req, res, next) => {
 
 	if (!auth) {
 		return res.status(401).json({
-			msg: "No hay token en la petición."
+			msg: "There's no token"
 		});
 	}
 
@@ -23,7 +23,7 @@ const validateJWT = async (req, res, next) => {
 		console.log(error);
 
 		return res.status(401).json({
-			msg: "Token no válido"
+			msg: "Invalid token"
 		});
 	}
 }

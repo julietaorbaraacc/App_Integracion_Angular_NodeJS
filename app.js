@@ -1,7 +1,7 @@
-//Externo
+//External
 import * as dotenv from 'dotenv';
 
-//Interno
+//Internal
 import { Server } from './models/server.js';
 
 dotenv.config();

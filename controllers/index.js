@@ -1,11 +1,15 @@
-import { login } from './login.js';
-import { signup } from './signup.js';
-import { saveRecipes } from './save.js';
-import { fetchRecipes } from "./fetch.js"
+import {
+	login,
+	signup
+} from './users.js';
+import {
+	save,
+	fetch
+} from './recipes.js';
 
 export {
 	login,
 	signup,
-	saveRecipes,
-	fetchRecipes
+	save,
+	fetch
 }

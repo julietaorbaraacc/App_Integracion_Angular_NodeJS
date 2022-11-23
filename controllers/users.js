@@ -3,7 +3,7 @@ import bcryptjs from "bcryptjs";
 
 //Internal
 import { User } from "../models/index.js";
-import { generateJWT } from "../helpers/generate-jwt.js";
+import { generateJWT } from "../helpers/index.js";
 
 const signup = async (req, res) => {
 	try {
@@ -26,11 +26,34 @@ const signup = async (req, res) => {
 		console.log(error);
 
 		res.status(500).json({
-			msg: "El user no pudo ser creado, hable con el administrador"
+			msg: "The user could not save, talk to the administrator"
+		});
+	}
+}
+
+const login = async (req, res) => {
+	try {
+		const { email } = req.body;
+		const user = await User.findOne({ email });
+		const token = await generateJWT(user.id);
+		user.idToken = token;
+
+		res.status(200).json({
+			email: user.email,
+			localId: user.localId,
+			idToken: user.idToken,
+			expiresIn: user.expiresIn
+		});
+	} catch (error) {
+		console.log(error);
+
+		res.status(500).json({
+			msg: "The user could not login, talk to the administrator"
 		});
 	}
 }
 
 export {
-	signup
+	signup,
+	login
 }
