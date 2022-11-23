@@ -11,20 +11,18 @@ import {
 	validateJWT
 } from '../middlewares/index.js';
 
-const routerSave = Router();
-const routerFetch = Router();
+const routerRecipes = Router();
 
-routerSave.post("/", [
+routerRecipes.put("/", [
 	validateJWT,
 	validateFields
 ], save);
 
-routerFetch.get("/", [
+routerRecipes.get("/", [
 	validateJWT,
 	validateFields
 ], fetch);
 
 export {
-	routerSave,
-	routerFetch
+	routerRecipes
 }

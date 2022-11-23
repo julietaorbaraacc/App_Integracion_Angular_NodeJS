@@ -1,15 +1,11 @@
 import {
-	routerLogin,
-	routerSignUp
+	routerUsers
 } from './users.js';
 import {
-	routerSave,
-	routerFetch
+	routerRecipes
 } from './recipes.js';
 
 export {
-	routerLogin,
-	routerSignUp,
-	routerSave,
-	routerFetch
+	routerUsers,
+	routerRecipes
 }

@@ -1,7 +1,7 @@
 {
   "name": "app_integracion_angular_nodejs",
   "version": "1.0.0",
-  "description": "Este proyecto incluye desde la sección 9 hasta la sección 13 de curso de NodeJs.",
+  "description": "Proyecto final del curso, contiene la integracion del backend con la app de angular.",
   "main": "app.js",
   "type": "module",
   "scripts": {

@@ -1,4 +1,4 @@
-# CursoNodeJs_Proyecto_Cafe
+# App_Integracion_Angular_NodeJS
 
 Proyecto final, integracion del backedn de nodeJS con la app de Angular
 

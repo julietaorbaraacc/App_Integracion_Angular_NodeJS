@@ -5,10 +5,8 @@ import cors from 'cors';
 //Internal
 import { dbConnection } from '../database/config.js';
 import {
-	routerLogin,
-	routerSignUp,
-	routerSave,
-	routerFetch
+	routerUsers,
+	routerRecipes
 } from '../routes/index.js';
 
 class Server {
@@ -37,10 +35,10 @@ class Server {
 	}
 
 	routes() {
-		this.app.use(this.paths.login, routerLogin);
-		this.app.use(this.paths.signup, routerSignUp);
-		this.app.use(this.paths.save, routerSave);
-		this.app.use(this.paths.fetch, routerFetch);
+		this.app.use(this.paths.login, routerUsers);
+		this.app.use(this.paths.signup, routerUsers);
+		this.app.use(this.paths.save, routerRecipes);
+		this.app.use(this.paths.fetch, routerRecipes);
 	}
 
 	listen() {

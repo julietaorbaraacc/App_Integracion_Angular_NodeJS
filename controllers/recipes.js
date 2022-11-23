@@ -27,12 +27,8 @@ const save = async (req, res) => {
 const fetch = async (req, res) => {
 	try {
 		const recipesList = await Recipe.find();
-		const total = recipesList.length;
 
-		res.status(200).json({
-			total,
-			recipesList
-		});
+		res.status(200).json(recipesList);
 	} catch (error) {
 		console.log(error);
 
