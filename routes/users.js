@@ -16,9 +16,10 @@ import {
 	validatePassword
 } from '../middlewares/index.js';
 
-const routerUsers = Router();
+const routerLogin = Router();
+const routerSignin = Router();
 
-routerUsers.post("/", [
+routerLogin.post("/", [
 	check("email", "The email is not valid").isEmail(),
 	check("email").custom(emailNoExists),
 	check("password", "The password is mandatory").not().isEmpty(),
@@ -26,7 +27,7 @@ routerUsers.post("/", [
 	validateFields
 ], login);
 
-routerUsers.post("/", [
+routerSignin.post("/", [
 	check("email", "The email is not valid").isEmail(),
 	check("email").custom(emailExists),
 	check("password", "The password is mandatory").not().isEmpty(),
@@ -35,5 +36,6 @@ routerUsers.post("/", [
 ], signup);
 
 export {
-	routerUsers
+	routerLogin,
+	routerSignin
 }
