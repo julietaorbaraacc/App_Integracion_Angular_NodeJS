@@ -22,6 +22,7 @@ const routerSignin = Router();
 routerLogin.post("/", [
 	check("email", "The email is not valid").isEmail(),
 	check("email").custom(emailNoExists),
+	validateFields,
 	check("password", "The password is mandatory").not().isEmpty(),
 	validatePassword,
 	validateFields
